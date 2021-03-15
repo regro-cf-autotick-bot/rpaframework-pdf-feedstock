@@ -1,7 +1,6 @@
 {% set name = "rpaframework-pdf" %}
 {% set version = "0.3.0" %}
 
-
 package:
   name: {{ name|lower }}
   version: {{ version }}
