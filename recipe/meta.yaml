@@ -1,33 +1,32 @@
 {% set name = "rpaframework-pdf" %}
-{% set version = "0.3.1" %}
+{% set version = "7.2.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/rpaframework-pdf-{{ version }}.tar.gz
-  sha256: 2325274cc5d3ddb4d085ab6b532b0faad24dbce077a6510eaa1987a507d40a94
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/rpaframework_pdf-{{ version }}.tar.gz
+  sha256: 2b25943eca0bc6b414986243de71ae2db2a94815c3351ee11834be4e651bbe3f
 
 build:
-  number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
+  number: 0
 
 requirements:
   host:
+    - python >=3.8,<4.0
+    - poetry-core >=1.0.0
     - pip
-    - python >=3.6,<4.0
-    - poetry
   run:
-    - fpdf2 >=2.3.0,<3.0.0
-    - pdfminer.six ==20201018
-    - pypdf2 >=1.26.0,<2.0.0
-    - python >=3.6,<4.0
-    - robotframework >=3.2.2,<5.0
-    - robotframework-pythonlibcore >=2.1.0,<3.0.0
-    - rpaframework-core >=6.1.0,<7.0.0
-    - sortedcontainers >=1
+    - python >=3.8.0,<4.0.0
+    - rpaframework-core >=11.0.0,<12.0.0
+    - robotframework >=4.0.0,!=4.0.1,!=6.1.0,<7.0.0
+    - robotframework-pythonlibcore >=4.2.0,<5.0.0
+    - pdfminer.six 20221105
+    - pypdf >=3.15.0,<4.0.0
+    - fpdf2 >=2.7.3,<3.0.0
 
 test:
   imports:
